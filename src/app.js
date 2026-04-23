@@ -9,6 +9,9 @@ app.use(cors({
     origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
     credentials: true,
 }));
+
+// ✅ CRITICAL FIX for preflight
+app.options("*", cors());
 app.use(express.json());
 
 // Session middleware – required for Passport OAuth round-trip
